@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+ name: nodeservice
+spec:
+ type: LoadBalancer
+ selector:
+   app: faas2
+ ports:
+ - port: 5000
+   targetPort: 5000
+   nodePort: 30000
+   # change this port to a value between 30000-32767

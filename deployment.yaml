@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-deployment
+  labels:
+    app: hellocs695
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hellocs695
+  template:
+    metadata:
+      labels:
+        app: hellocs695
+    spec:
+      containers:
+      - name: miniimage
+        image: debojeetdas/hellocs695:latest
+        command: ["flask", "--app", "hello", "run"]
+        ports:
+        - containerPort: 5000

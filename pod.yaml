@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: faas2
+spec:
+  containers:
+    - name: faas2
+      image: debojeetdas/hellocs695:latest
+      command: ["flask", "--app", "hello", "run"]
+      ports:
+        - containerPort: 8000
+    - name: output
+      image: debian
+      command: ["/bin/sh", "-c"]
+      args:
+        - while true; do
+            sleep 1;
+          done
+
