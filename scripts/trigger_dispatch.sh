@@ -6,9 +6,4 @@ echo "Trigger has happened"
 kubectl create deployment master --image=$0
 kubectl expose deployment master --port=8080 --type=NodePort
 kubectl port-forward service/master 7865:8080
-echo "Service created for listening to trigger"
-# expose deployment
-
-# port forward
-
-# print the endpoint
+echo "Service created for listening to trigger at localhost:7865" 
