@@ -1,13 +1,14 @@
 import subprocess
 
 class Function:
+    port = 7001
     def __init__(self, image, trigger_value):
         self.image = image
         self.trigger_value = trigger_value
-
+        self.port = str(Function.port)
+        Function.port += 1
 
 mapping = {}
-
 
 while True:
         
@@ -30,23 +31,23 @@ while True:
         elif trigger_name == 2:
             print("Enter the cron expression")
             cron_expression = input()
-            # try to save later
             mapping[function_name].trigger_value = cron_expression
-            subprocess.run(["bash", "create_cronjob.sh", cron_expression, function_name, image_name]) 
+            cport = mapping[function_name].port
+            subprocess.run(["bash", "create_cronjob.sh", cron_expression, function_name, image_name, cport]) 
             print("CronJob created successfully")       
         else:
             print("Invalid Trigger")
     elif choice == 3:
         print("Registered Functions and Triggers")
         for key, value in mapping.items():
-            print(key, value.name, value.trigger_value)
+            print(key, value.trigger_value)
     elif choice == 4:
         # remove cronjob
         print("Enter function name to stop")
         function_name = input()
         if function_name not in mapping:
             print("Function not found")
-            continue
-        del mapping[function_name]
+        else:
+            del mapping[function_name]
         subprocess.run(["bash", "delete_function.sh", function_name])
         subprocess.run(["crontab", "-r"])

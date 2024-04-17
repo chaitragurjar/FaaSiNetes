@@ -1,6 +1,6 @@
+Triggering 
 Trigger has happened
-error: failed to create deployment: deployments.apps "faas2" already exists
-Error from server (AlreadyExists): services "faas2" already exists
-Unable to listen on port 7865: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 127.0.0.1:7865: bind: address already in use unable to create listener: Error listen tcp6 [::1]:7865: bind: address already in use]
-error: unable to listen on any of the requested ports: [{7865 8000}]
-Service created for listening to trigger at localhost:7865
+deployment.apps/gth created
+service/gth exposed
+error: unable to forward port because pod is not running. Current status=Pending
+Service created for listening to trigger at localhost:7001
