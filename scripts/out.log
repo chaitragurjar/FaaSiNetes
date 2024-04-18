@@ -1,6 +1,0 @@
-Triggering 
-Trigger has happened
-deployment.apps/gth created
-service/gth exposed
-error: unable to forward port because pod is not running. Current status=Pending
-Service created for listening to trigger at localhost:7001
