@@ -14,8 +14,9 @@ echo "Service created for listening to trigger at localhost:$3"
 echo "Sleeping for $4 seconds"
 sleep $4
 echo "Deleting $1"s
-bash delete_function.sh $1
-crontab -l | grep -v out$1.log  | crontab -
+kubectl delete deployment $1
+kubectl delete service $1
+
 
 
 

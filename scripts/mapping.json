@@ -1,0 +1,13 @@
+{
+    "COOLDOWN": 300,
+    "mango": {
+        "image": "chaitragurjar/test-flask",
+        "trigger_value": "10 * * * *",
+        "port": "7007"
+    },
+    "cucumber": {
+        "image": "chaitragurjar/test-flask",
+        "trigger_value": "HTTP",
+        "port": "7009"
+    }
+}
