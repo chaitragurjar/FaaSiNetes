@@ -1,7 +1,0 @@
-Deleting 
-Deleting apples
-Error from server (NotFound): deployments.apps "apple" not found
-Error from server (NotFound): services "apple" not found
-Deleting apples
-Error from server (NotFound): deployments.apps "apple" not found
-Error from server (NotFound): services "apple" not found
