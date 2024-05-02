@@ -1,5 +1,6 @@
 import subprocess
 import json
+import os
 
 class Function:
     port = 7001
@@ -58,6 +59,11 @@ while True:
                 mapping[function_name].trigger_value = cron_expression
                 cport = mapping[function_name].port
                 write_to_json(mapping)
+                cmd = 'bash create_cronjob.sh "'+cron_expression+ '" '+ function_name + ' '+ image_name+' '+cport+ ' '+str(cooldown)+' &'
+                print(cmd)
+                # os.system(cmd)
+                # os.system("bash create_cronjob.sh "+cron_expression+ " "+ function_name + " "+ image_name+" "+cport+ " "+str(cooldown)+" &")
+
                 subprocess.run(["bash", "create_cronjob.sh", cron_expression, function_name, image_name, cport , str(cooldown)]) 
                 print("CronJob created successfully") 
             else:
@@ -81,8 +87,8 @@ while True:
             subprocess.run(["bash", "delete_function.sh", str(1), function_name])
         elif choice == 5:
             print("Enter cooldown period in min")
-            cooldown = int(input())
-            mapping["COOLDOWN"] = cooldown*60
+            cooldown = float(input())
+            mapping["COOLDOWN"] = int(cooldown*60)
             write_to_json(mapping)
             print("Cooldown period updated successfully")
         elif choice == 6:

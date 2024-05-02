@@ -1,13 +1,1 @@
-{
-    "COOLDOWN": 300,
-    "mango": {
-        "image": "chaitragurjar/test-flask",
-        "trigger_value": "10 * * * *",
-        "port": "7007"
-    },
-    "cucumber": {
-        "image": "chaitragurjar/test-flask",
-        "trigger_value": "HTTP",
-        "port": "7009"
-    }
-}
+{"COOLDOWN": 30, "cron": {"image": "chaitragurjar/price-tracker ", "trigger_value": "2 * * * *", "port": "7001"}, "bhindi": {"image": "chaitragurjar/price-tracker ", "trigger_value": "2 * * * *", "port": "7002"}, "baingan": {"image": "chaitragurjar/test-flask", "trigger_value": "HTTP", "port": "7003"}}
